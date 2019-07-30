@@ -7,8 +7,8 @@ repositories {
 
 group = 'com.project.template'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.9
-targetCompatibility = 1.9
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 dependencies {
