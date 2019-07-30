@@ -1,12 +1,12 @@
-package com.github.tomplum.chapter1;
+package com.github.tomplum.chapter1.question1;
 
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 
-class Question1Test {
-    private final Question1 algorithm = new Question1();
+class StringUtilityTest {
+    private final StringUtility algorithm = new StringUtility();
 
     @Test
     void stringContainsOnlyUniqueLetters_shouldReturnTrue() {
