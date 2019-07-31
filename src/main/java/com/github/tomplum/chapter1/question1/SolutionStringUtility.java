@@ -1,13 +1,15 @@
 package com.github.tomplum.chapter1.question1;
 
 /**
- * Class Description.
+ * Assuming that the string inputs are only lower-case letters a-z.
  *
  * @author Thomas Plumpton
  */
 public class SolutionStringUtility implements StringUtility {
     @Override
     public boolean containsUniqueCharacters(final String input) {
+        if (input == null) return true;
+
         int checker = 0;
         for (int i = 0; i < input.length(); i++) {
             int val = input.charAt(i) - 'a';

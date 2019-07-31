@@ -12,12 +12,12 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
  *
  * @author Thomas Plumpton
  */
-public class SolutionStringUtilityTest {
+class SolutionStringUtilityTest {
     private final StringUtility algorithm = new SolutionStringUtility();
 
     @ParameterizedTest
     @NullAndEmptySource
-    @ValueSource(strings = {"abcdef", "abc45678def", "-/'~#@", "abc123-/_"})
+    @ValueSource(strings = {"abcdef", "kjsopw", "lkqwer", "zxcvbnm"})
     @DisplayName("Input string contains only characters that are unique. Should return true.")
     void containsOnlyUnique(final String input) {
         final boolean result = algorithm.containsUniqueCharacters(input);
