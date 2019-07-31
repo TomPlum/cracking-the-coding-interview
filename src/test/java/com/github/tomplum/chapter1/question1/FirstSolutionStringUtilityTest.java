@@ -4,10 +4,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
-class MyStringUtilityTest {
-    private final StringUtility algorithm = new MyStringUtility();
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+/**
+ * Class Description.
+ *
+ * @author Thomas Plumpton
+ */
+class FirstSolutionStringUtilityTest {
+    private final StringUtility algorithm = new FirstSolutionStringUtility();
 
     @ParameterizedTest
     @NullAndEmptySource

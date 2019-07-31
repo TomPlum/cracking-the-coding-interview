@@ -1,6 +1,7 @@
 package com.github.tomplum.chapter1.question1;
 
 import java.util.BitSet;
+import java.util.HashSet;
 import java.util.Hashtable;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Hashtable;
  *
  * Hint #44 - Try a HashTable
  * Hint #117 - Could a bit vector be useful?
+ * Hint #132 - Can you solve it in O(N log N) time? What might a solution like that look like?
  *
  * Good answer on BitShifting here: https://stackoverflow.com/a/12811293
  *
@@ -21,6 +23,17 @@ import java.util.Hashtable;
 public class MyStringUtility implements StringUtility {
     @Override
     public boolean containsUniqueCharacters(final String input) {
-        return false;
+       /* if (input == null) return true;
+
+        Hashtable<Integer, String> checked = new Hashtable<>();
+        char[] characters = input.toCharArray();
+        int counter = 0;
+
+        for (int i = 0; i < characters.length; i++) {
+            if (characters.c) return false;
+        }
+
+        return true;*/
+       return false;
     }
 }
