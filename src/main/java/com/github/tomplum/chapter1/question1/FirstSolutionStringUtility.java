@@ -25,4 +25,9 @@ public class FirstSolutionStringUtility implements StringUtility {
         }
         return true;
     }
+
+    @Override
+    public boolean stringsArePermutation(String input, String comparator) {
+        return false;
+    }
 }

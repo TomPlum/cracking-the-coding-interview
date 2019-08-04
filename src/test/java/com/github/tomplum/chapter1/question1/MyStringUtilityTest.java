@@ -2,19 +2,20 @@ package com.github.tomplum.chapter1.question1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 class MyStringUtilityTest {
-    private final StringUtility algorithm = new MyStringUtility();
+    private final StringUtility utility = new MyStringUtility();
 
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {"abcdef", "abc45678def", "-/'~#@", "abc123-/_"})
     @DisplayName("Input string contains only characters that are unique. Should return true.")
     void containsOnlyUnique(final String input) {
-        final boolean result = algorithm.containsUniqueCharacters(input);
+        final boolean result = utility.containsUniqueCharacters(input);
         assertThat(result).isTrue();
     }
 
@@ -22,7 +23,23 @@ class MyStringUtilityTest {
     @ValueSource(strings = {"aabcdfre", "aabcd66fre", "aabcd66fr--;;e"})
     @DisplayName("Input string contains duplicate characters. Should return false.")
     void containsDuplicate(final String input) {
-        final boolean result = algorithm.containsUniqueCharacters(input);
+        final boolean result = utility.containsUniqueCharacters(input);
+        assertThat(result).isFalse();
+    }
+
+    @ParameterizedTest
+    @CsvSource({"abcd, dcba", "1234, 4312", "-/;@, @-/;"})
+    @DisplayName("Given that the two strings are permutations of each other, should return true.")
+    void stringsArePermutationsOfEachOther(final String input, final String comparator) {
+        final boolean result = utility.stringsArePermutation(input, comparator);
+        assertThat(result).isTrue();
+    }
+
+    @ParameterizedTest
+    @CsvSource({"abcd, dcgba", "1234, 412", "-/;@, -/;", "abcdefghi, abcde"})
+    @DisplayName("Given that the two strings are not permutations of each other, should return false.")
+    void stringsAreNotPermutationsOfEachOther(final String input, final String comparator) {
+        final boolean result = utility.stringsArePermutation(input, comparator);
         assertThat(result).isFalse();
     }
 }
