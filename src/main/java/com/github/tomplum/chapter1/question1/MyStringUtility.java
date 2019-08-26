@@ -1,12 +1,11 @@
 package com.github.tomplum.chapter1.question1;
 
 import java.util.Arrays;
-import java.util.BitSet;
-import java.util.HashSet;
-import java.util.Hashtable;
 
 /**
  * Chapter 1: Arrays and Strings
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
  *
  * Question 1.1
  *
@@ -19,13 +18,24 @@ import java.util.Hashtable;
  *
  * Good answer on BitShifting here: https://stackoverflow.com/a/12811293
  *
+ * ---------------------------------------------------------------------------------------------------------------------
  * Question 1.2
  *
- * "String permutation: Given two strings, write a method to decide if one is a premutation of the other"
+ * "String permutation: Given two strings, write a method to decide if one is a permutation of the other"
+ *
+ * Hint #1 -
+ * Hint #84
+ * Hint #122
+ * Hint #131
  *
  * @author Thomas Plumpton
  */
 public class MyStringUtility implements StringUtility {
+    /**
+     * Question 1.1 - Is Unique
+     * @param input Input String
+     * @return true if input contains unique characters
+     */
     @Override
     public boolean containsUniqueCharacters(final String input) {
        /* if (input == null) return true;
@@ -42,6 +52,12 @@ public class MyStringUtility implements StringUtility {
        return false;
     }
 
+    /**
+     * Question 1.2 - String Permutation
+     * @param input Input String
+     * @param comparator String to check if input is a permutation of
+     * @return true if string inputs are permutations of one another
+     */
     @Override
     public boolean stringsArePermutation(String input, String comparator) {
         if (input.length() != comparator.length()) return false;
