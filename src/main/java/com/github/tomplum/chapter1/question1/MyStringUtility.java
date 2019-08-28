@@ -24,9 +24,11 @@ import java.util.Arrays;
  * "String permutation: Given two strings, write a method to decide if one is a permutation of the other"
  *
  * Hint #1 -
- * Hint #84
- * Hint #122
- * Hint #131
+ * Hint #84 -
+ * Hint #122 -
+ * Hint #131 -
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
  *
  * @author Thomas Plumpton
  */
@@ -73,6 +75,11 @@ public class MyStringUtility implements StringUtility {
         }
 
         return true;
+    }
+
+    @Override
+    public String encodeSpaces(String input, int trueLength) {
+        return null;
     }
 
 

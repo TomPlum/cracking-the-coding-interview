@@ -30,4 +30,9 @@ public class FirstSolutionStringUtility implements StringUtility {
     public boolean stringsArePermutation(String input, String comparator) {
         return false;
     }
+
+    @Override
+    public String encodeSpaces(String input, int trueLength) {
+        return null;
+    }
 }

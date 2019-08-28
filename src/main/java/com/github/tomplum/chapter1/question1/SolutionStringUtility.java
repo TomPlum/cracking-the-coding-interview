@@ -21,6 +21,24 @@ public class SolutionStringUtility implements StringUtility {
 
     @Override
     public boolean stringsArePermutation(String input, String comparator) {
-        return false;
+        if (input.length() != comparator.length()) return false; //Permutations must be same length
+
+        int[] letters = new int[128]; //Assuming ASCII
+        for (int i = 0; i < input.length(); i++) {
+            letters[input.charAt(i)]++;
+        }
+
+        for (int i = 0; i < comparator.length(); i++) {
+            if (letters[input.charAt(i)] < 0) {
+                return false;
+            }
+        }
+
+        return true; //letters has no negative values, and therefore no positive values either.
+    }
+
+    @Override
+    public String encodeSpaces(String input, int trueLength) {
+        return null;
     }
 }

@@ -1,15 +1,19 @@
 package com.github.tomplum.chapter1.question1;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.assertj.core.api.AssertionsForClassTypes.in;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 class MyStringUtilityTest {
     private final StringUtility utility = new MyStringUtility();
 
+    //Question 1.1
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {"abcdef", "abc45678def", "-/'~#@", "abc123-/_"})
@@ -27,6 +31,7 @@ class MyStringUtilityTest {
         assertThat(result).isFalse();
     }
 
+    //Question 1.2
     @ParameterizedTest
     @CsvSource({"abcd, dcba", "1234, 4312", "-/;@, @-/;"})
     @DisplayName("Given that the two strings are permutations of each other, should return true.")
@@ -41,5 +46,52 @@ class MyStringUtilityTest {
     void stringsAreNotPermutationsOfEachOther(final String input, final String comparator) {
         final boolean result = utility.stringsArePermutation(input, comparator);
         assertThat(result).isFalse();
+    }
+
+    //Question 1.3
+    @ParameterizedTest
+    @CsvSource({" a , 1", "  a  , 1"})
+    void stringContainsSpaces(final String input, final int trueLength) {
+        final String result = utility.encodeSpaces(input, trueLength);
+    }
+
+    @Test
+    void stringContainsSpaces_singleSpaceInBetweenWords_shouldReturnSameStringWithEncodedSpaces() {
+        final String input = "Thomas Plumpton";
+        final int trueLength = 14;
+
+        final String result = utility.encodeSpaces(input, trueLength);
+
+        assertThat(result).isEqualTo("Thomas%20Plumpton");
+    }
+
+    @Test
+    void stringContainsSpaces_justOneSpaceNoOtherCharacters_shouldReturnSameStringWithEncodedSpaces() {
+        final String input = " ";
+        final int trueLength = 0;
+
+        final String result = utility.encodeSpaces(input, trueLength);
+
+        assertThat(result).isEqualTo("%20");
+    }
+
+    @Test
+    void stringContainsSpaces_multipleWordsSeparatedBySpaces_shouldReturnSameStringWithEncodedSpaces() {
+        final String input = "a b c";
+        final int trueLength = 3;
+
+        final String result = utility.encodeSpaces(input, trueLength);
+
+        assertThat(result).isEqualTo("a%20b%20c");
+    }
+
+    @Test
+    void stringContainsSpaces_containsDoubleSpace_shouldReturnSameStringWithEncodedSpaces() {
+        final String input = "a  b";
+        final int trueLength = 2;
+
+        final String result = utility.encodeSpaces(input, trueLength);
+
+        assertThat(result).isEqualTo("a%20%20b");
     }
 }

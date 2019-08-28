@@ -4,4 +4,6 @@ public interface StringUtility {
     boolean containsUniqueCharacters(final String input);
 
     boolean stringsArePermutation(final String input, final String comparator);
+
+    String encodeSpaces(final String input, final int trueLength);
 }
