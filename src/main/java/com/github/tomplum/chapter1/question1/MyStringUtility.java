@@ -1,6 +1,7 @@
 package com.github.tomplum.chapter1.question1;
 
 import java.util.Arrays;
+import java.util.Hashtable;
 
 /**
  * Chapter 1: Arrays and Strings
@@ -29,6 +30,18 @@ import java.util.Arrays;
  * Hint #131 -
  *
  * ---------------------------------------------------------------------------------------------------------------------
+ * Question 1.3
+ *
+ * "URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient
+ * space at the end to hold the additional characters, and that you are given the "true" length of the string.
+ * (Note: if implementing in Java, please use a character array so that you can perform this operation in place.)
+ *
+ * Hint #58 - Try thinking about the array as circular, such that the end of the array "wraps around" to the start of
+ * the array.
+ *
+ * Hint #118 - You might find you need to know the number of spaces. Can you just count them?
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
  *
  * @author Thomas Plumpton
  */
@@ -40,18 +53,14 @@ public class MyStringUtility implements StringUtility {
      */
     @Override
     public boolean containsUniqueCharacters(final String input) {
-       /* if (input == null) return true;
+       if (input == null) return true;
 
-        Hashtable<Integer, String> checked = new Hashtable<>();
-        char[] characters = input.toCharArray();
-        int counter = 0;
-
-        for (int i = 0; i < characters.length; i++) {
-            if (characters.c) return false;
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = i + 1; j < input.length(); j++) {
+                if (input.charAt(i) == input.charAt(j)) return false;
+            }
         }
-
-        return true;*/
-       return false;
+        return true;
     }
 
     /**
@@ -77,10 +86,16 @@ public class MyStringUtility implements StringUtility {
         return true;
     }
 
+    /**
+     * Question 1.3 - URLify
+     * @param input String to URLify
+     * @param trueLength The true length of the string when all the spaces are not encoded.
+     * @return Input string with all spaces encoded to %20
+     */
     @Override
     public String encodeSpaces(String input, int trueLength) {
-        return null;
+        input =  input.replaceAll(" ", "%20");
+        return input.trim();
     }
-
 
 }

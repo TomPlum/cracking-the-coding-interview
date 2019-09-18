@@ -1,6 +1,7 @@
 package com.github.tomplum.chapter1.question1;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -13,7 +14,7 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 class MyStringUtilityTest {
     private final StringUtility utility = new MyStringUtility();
 
-    //Question 1.1
+    @Tag("Question 1.1")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {"abcdef", "abc45678def", "-/'~#@", "abc123-/_"})
@@ -23,6 +24,7 @@ class MyStringUtilityTest {
         assertThat(result).isTrue();
     }
 
+    @Tag("Question 1.1")
     @ParameterizedTest
     @ValueSource(strings = {"aabcdfre", "aabcd66fre", "aabcd66fr--;;e"})
     @DisplayName("Input string contains duplicate characters. Should return false.")
@@ -31,7 +33,7 @@ class MyStringUtilityTest {
         assertThat(result).isFalse();
     }
 
-    //Question 1.2
+    @Tag("Question 1.2")
     @ParameterizedTest
     @CsvSource({"abcd, dcba", "1234, 4312", "-/;@, @-/;"})
     @DisplayName("Given that the two strings are permutations of each other, should return true.")
@@ -40,6 +42,7 @@ class MyStringUtilityTest {
         assertThat(result).isTrue();
     }
 
+    @Tag("Question 1.2")
     @ParameterizedTest
     @CsvSource({"abcd, dcgba", "1234, 412", "-/;@, -/;", "abcdefghi, abcde"})
     @DisplayName("Given that the two strings are not permutations of each other, should return false.")
@@ -48,7 +51,7 @@ class MyStringUtilityTest {
         assertThat(result).isFalse();
     }
 
-    //Question 1.3
+    @Tag("Question 1.3")
     @ParameterizedTest
     @CsvSource({" a , 1", "  a  , 1"})
     void stringContainsSpaces(final String input, final int trueLength) {
@@ -56,7 +59,9 @@ class MyStringUtilityTest {
     }
 
     @Test
-    void stringContainsSpaces_singleSpaceInBetweenWords_shouldReturnSameStringWithEncodedSpaces() {
+    @Tag("Question 1.3")
+    @DisplayName("When the input string contains a single space separating two words, it should encode that single space")
+    void singleSpaceBetweenWords() {
         final String input = "Thomas Plumpton";
         final int trueLength = 14;
 
@@ -66,7 +71,9 @@ class MyStringUtilityTest {
     }
 
     @Test
-    void stringContainsSpaces_justOneSpaceNoOtherCharacters_shouldReturnSameStringWithEncodedSpaces() {
+    @Tag("Question 1.3")
+    @DisplayName("When the input string is just a single space, it should just return %20.")
+    void stringIsOnlyOneSpace() {
         final String input = " ";
         final int trueLength = 0;
 
@@ -76,7 +83,9 @@ class MyStringUtilityTest {
     }
 
     @Test
-    void stringContainsSpaces_multipleWordsSeparatedBySpaces_shouldReturnSameStringWithEncodedSpaces() {
+    @Tag("Question 1.3")
+    @DisplayName("When the input string contains multiple words separated by spaces, it should encode all spaces.")
+    void multipleWordsSeparatedBySpaces() {
         final String input = "a b c";
         final int trueLength = 3;
 
@@ -86,7 +95,9 @@ class MyStringUtilityTest {
     }
 
     @Test
-    void stringContainsSpaces_containsDoubleSpace_shouldReturnSameStringWithEncodedSpaces() {
+    @Tag("Question 1.3")
+    @DisplayName("When the string contains two consecutive spaces, it should encode both of them.")
+    void stringContainsTwoConsecutiveSpaces() {
         final String input = "a  b";
         final int trueLength = 2;
 
