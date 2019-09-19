@@ -57,12 +57,7 @@ import java.util.Arrays;
  * @author Thomas Plumpton
  */
 public class MyStringUtility implements StringUtility {
-    /**
-     * Question 1.1 - Is Unique
-     *
-     * @param input Input String
-     * @return true if input contains unique characters
-     */
+   
     @Override
     public boolean containsUniqueCharacters(String input) {
         if (input == null) return true;
@@ -75,13 +70,6 @@ public class MyStringUtility implements StringUtility {
         return true;
     }
 
-    /**
-     * Question 1.2 - String Permutation
-     *
-     * @param input Input String
-     * @param comparator String to check if input is a permutation of
-     * @return true if string inputs are permutations of one another
-     */
     @Override
     public boolean stringsArePermutation(String input, String comparator) {
         if (input.length() != comparator.length()) return false;
@@ -99,25 +87,12 @@ public class MyStringUtility implements StringUtility {
         return true;
     }
 
-    /**
-     * Question 1.3 - URLify
-     *
-     * @param input String to URLify
-     * @param trueLength The true length of the string when all the spaces are not encoded.
-     * @return Input string with all spaces encoded to %20
-     */
     @Override
     public String encodeSpaces(String input, int trueLength) {
         input = input.replaceAll(" ", "%20");
         return input.trim();
     }
 
-    /**
-     * Question 1.4 - Palindrome Permutation
-     *
-     * @param input String to check if it is a palindrome
-     * @return true if palindrome, false if not
-     */
     @Override
     public boolean isPalindrome(String input) {
         return input != null && input.equalsIgnoreCase(new StringBuilder(input).reverse().toString());
