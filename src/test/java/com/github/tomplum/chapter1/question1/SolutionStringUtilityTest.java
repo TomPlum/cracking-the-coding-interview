@@ -16,7 +16,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class SolutionStringUtilityTest {
     private final StringUtility utility = new SolutionStringUtility();
 
-    @Tag("Question 1.1")
+    @Tag("1.1")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {"abcdef", "kjsopw", "lkqwer", "zxcvbnm"})
@@ -26,7 +26,7 @@ class SolutionStringUtilityTest {
         assertThat(result).isTrue();
     }
 
-    @Tag("Question 1.1")
+    @Tag("1.1")
     @ParameterizedTest
     @ValueSource(strings = {"aabcdfre", "aabcd66fre", "aabcd66fr--;;e"})
     @DisplayName("Input string contains duplicate characters. Should return false.")
@@ -35,7 +35,7 @@ class SolutionStringUtilityTest {
         assertThat(result).isFalse();
     }
 
-    @Tag("Question 1.2")
+    @Tag("1.2")
     @ParameterizedTest
     @CsvSource({"abcd, dcba", "1234, 4312", "-/;@, @-/;"})
     @DisplayName("Given that the two strings are permutations of each other, should return true.")
@@ -44,7 +44,7 @@ class SolutionStringUtilityTest {
         assertThat(result).isTrue();
     }
 
-    @Tag("Question 1.2")
+    @Tag("1.2")
     @ParameterizedTest
     @CsvSource({"abcd, dcgba", "1234, 412", "-/;@, -/;", "abcdefghi, abcde"})
     @DisplayName("Given that the two strings are not permutations of each other, should return false.")
@@ -53,7 +53,7 @@ class SolutionStringUtilityTest {
         assertThat(result).isFalse();
     }
 
-    @Tag("Question 1.3")
+    @Tag("1.3")
     @ParameterizedTest
     @CsvSource({" a , 1", "  a  , 1"})
     void stringContainsSpaces(String input, int trueLength) {
@@ -61,7 +61,7 @@ class SolutionStringUtilityTest {
     }
 
     @Test
-    @Tag("Question 1.3")
+    @Tag("1.3")
     @DisplayName("When the input string contains a single space separating two words, it should encode that single space")
     void singleSpaceBetweenWords() {
         String input = "Thomas Plumpton  ";
@@ -73,7 +73,7 @@ class SolutionStringUtilityTest {
     }
 
     @Test
-    @Tag("Question 1.3")
+    @Tag("1.3")
     @DisplayName("When the input string is just a single space, it should just return %20.")
     void stringIsOnlyOneSpace() {
         String input = "   ";
@@ -85,7 +85,7 @@ class SolutionStringUtilityTest {
     }
 
     @Test
-    @Tag("Question 1.3")
+    @Tag("1.3")
     @DisplayName("When the input string contains multiple words separated by spaces, it should encode all spaces.")
     void multipleWordsSeparatedBySpaces() {
         String input = "a b c    ";
@@ -97,7 +97,7 @@ class SolutionStringUtilityTest {
     }
 
     @Test
-    @Tag("Question 1.3")
+    @Tag("1.3")
     @DisplayName("When the string contains two consecutive spaces, it should encode both of them.")
     void stringContainsTwoConsecutiveSpaces() {
         String input = "a  b    ";
