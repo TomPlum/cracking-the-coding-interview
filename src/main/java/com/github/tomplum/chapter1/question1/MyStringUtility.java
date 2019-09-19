@@ -121,7 +121,7 @@ public class MyStringUtility implements StringUtility {
      */
     @Override
     public boolean isPalindrome(String input) {
-        return false;
+        return input != null && input.equalsIgnoreCase(new StringBuilder(input).reverse().toString());
     }
 
 }
