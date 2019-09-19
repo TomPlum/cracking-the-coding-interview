@@ -61,6 +61,11 @@ public class SolutionStringUtility implements StringUtility {
         return new String(str);
     }
 
+    @Override
+    public boolean isPalindrome(String input) {
+        return false;
+    }
+
 
     private int countOccurrencesOfChar(char[] str, int start, int end, int target) {
         int count = 0;

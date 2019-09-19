@@ -1,11 +1,6 @@
 package com.github.tomplum.chapter1.question1;
 
 /**
- * First solution of Gayles.
- *
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- *
  * @author Thomas Plumpton
  */
 public class FirstSolutionStringUtility implements StringUtility {
@@ -34,5 +29,10 @@ public class FirstSolutionStringUtility implements StringUtility {
     @Override
     public String encodeSpaces(String input, int trueLength) {
         return null;
+    }
+
+    @Override
+    public boolean isPalindrome(String input) {
+        return false;
     }
 }

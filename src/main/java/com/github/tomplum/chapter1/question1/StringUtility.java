@@ -1,9 +1,11 @@
 package com.github.tomplum.chapter1.question1;
 
 public interface StringUtility {
-    boolean containsUniqueCharacters(final String input);
+    boolean containsUniqueCharacters(String input);
 
-    boolean stringsArePermutation(final String input, final String comparator);
+    boolean stringsArePermutation(String input, String comparator);
 
-    String encodeSpaces(final String input, final int trueLength);
+    String encodeSpaces(String input, int trueLength);
+
+    boolean isPalindrome(String input);
 }

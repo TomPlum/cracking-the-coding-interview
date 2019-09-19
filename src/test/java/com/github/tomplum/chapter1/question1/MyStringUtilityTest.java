@@ -4,9 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -103,5 +101,23 @@ class MyStringUtilityTest {
         String result = utility.encodeSpaces(input, trueLength);
 
         assertThat(result).isEqualTo("a%20%20b");
+    }
+
+    @Tag("1.4")
+    @EmptySource
+    @ParameterizedTest
+    @DisplayName("Given the input String is a palindrome, it should return true")
+    @ValueSource(strings = {"tacocat", "abcecba", "RACECAR", "level", "civic", "Able was I ere I saw Elba"})
+    void stringIsPalindrome(String input) {
+        assertThat(utility.isPalindrome(input)).isTrue();
+    }
+
+    @Tag("1.4")
+    @NullSource
+    @ParameterizedTest
+    @DisplayName("Given the input String is not a palindrome, it should return false")
+    @ValueSource(strings = {"tacoccat", "word", "notapalindrome", " racecar"})
+    void stringIsNotPalindrome(String input) {
+        assertThat(utility.isPalindrome(input)).isFalse();
     }
 }
