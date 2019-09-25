@@ -57,7 +57,7 @@ import java.util.Arrays;
  * @author Thomas Plumpton
  */
 public class MyStringUtility implements StringUtility {
-   
+
     @Override
     public boolean containsUniqueCharacters(String input) {
         if (input == null) return true;
