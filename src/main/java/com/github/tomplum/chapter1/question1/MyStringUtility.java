@@ -112,6 +112,20 @@ public class MyStringUtility implements StringUtility {
 
     @Override
     public boolean isOneEditAway(String before, String after) {
+        if (before.equals(after) || (Math.abs(before.length() - after.length())) == 1) return true;
+
+        if (before.length() == after.length()) {
+            char[] beforeArray = before.toCharArray();
+            char[] afterArray = after.toCharArray();
+
+            int replacedCharacters = 0;
+
+            for (int i = 0; i < beforeArray.length; i++) {
+                if (beforeArray[i] != afterArray[i]) replacedCharacters++;
+            }
+
+            return replacedCharacters < 2;
+        }
         return false;
     }
 

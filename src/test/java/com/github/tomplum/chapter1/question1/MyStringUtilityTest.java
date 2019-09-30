@@ -116,7 +116,7 @@ class MyStringUtilityTest {
 
     @Tag("1.5")
     @ParameterizedTest
-    @CsvSource({"example, example", "string, string", "same, same", "123, 123", "-/@#, -/@#", " , "})
+    @CsvSource({"example, example", "string, string", "same, same", "123, 123", "-/@#, -/@#"})
     @DisplayName("Given the strings have no edits between them (they are the same), it should return true")
     void inputStringsHaveNoEditsDifference(String before, String after) {
         boolean response = utility.isOneEditAway(before, after);
