@@ -47,10 +47,22 @@ import java.util.Arrays;
  * palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters.
  * The palindrome does not need to be limited to just dictionary words. You can ignore casing and non-letter characters.
  *
- * Hint #106 -
- * Hint #121 -
- * Hint #134 -
- * Hint #136 -
+ * Hint #106 - You do not have to - and should not - generate all permutations. This would be very inefficient.
+ * Hint #121 - What characteristics would a string that is a permutation of a palindrome have?
+ * Hint #134 - Have you tried a hash table? You should be able to get this down to O(N) time.
+ * Hint #136 - Can you reduce the space usage by using a bit vector?
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * Question 1.5
+ *
+ * "One Away: There are three types of edits that can be performed on strings: insert a character, remove a character,
+ * or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.
+ *
+ * Hint #23 - Start with the easy thing. Can you check each of the conditions separately?
+ * Hint #97 - What is the relationship between between the "insert character" and the "remove character" option? Do
+ * these two need to be separate checks?
+ * Hint #130 - Can you do all three checks in a single pass?
  *
  * ---------------------------------------------------------------------------------------------------------------------
  *
@@ -96,6 +108,11 @@ public class MyStringUtility implements StringUtility {
     @Override
     public boolean isPalindrome(String input) {
         return input != null && input.equalsIgnoreCase(new StringBuilder(input).reverse().toString());
+    }
+
+    @Override
+    public boolean isOneEditAway(String before, String after) {
+        return false;
     }
 
 }

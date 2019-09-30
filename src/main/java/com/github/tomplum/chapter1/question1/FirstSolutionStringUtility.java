@@ -38,6 +38,11 @@ public class FirstSolutionStringUtility implements StringUtility {
         return checkMaxOneOdd(table);
     }
 
+    @Override
+    public boolean isOneEditAway(String before, String after) {
+        return false;
+    }
+
     private boolean checkMaxOneOdd(int[] table) {
         boolean foundOdd = false;
         for (int count : table) {

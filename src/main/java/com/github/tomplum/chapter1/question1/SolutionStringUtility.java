@@ -66,6 +66,10 @@ public class SolutionStringUtility implements StringUtility {
         return false;
     }
 
+    @Override
+    public boolean isOneEditAway(String before, String after) {
+        return false;
+    }
 
     private int countOccurrencesOfChar(char[] str, int start, int end, int target) {
         int count = 0;

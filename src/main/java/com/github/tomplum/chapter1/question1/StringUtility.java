@@ -34,4 +34,13 @@ public interface StringUtility {
      * @return true if palindrome, false if not
      */
     boolean isPalindrome(String input);
+
+    /**
+     * Question 1.5 - One Away
+     *
+     * @param before The initial input String before any 'edits' have been made to it
+     * @param after The String after a given number of edits have been made to it
+     * @return True if one (or zero) edits have been made to the String.
+     */
+    boolean isOneEditAway(String before, String after);
 }
