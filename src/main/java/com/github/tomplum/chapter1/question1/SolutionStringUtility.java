@@ -68,7 +68,32 @@ public class SolutionStringUtility implements StringUtility {
 
     @Override
     public boolean isOneEditAway(String before, String after) {
-        return false;
+        /* Length checks. */
+        if (Math.abs(before.length() - after.length()) > 1) {
+            return false;
+        }
+
+        /* Get shorter and longer string.*/
+        String s1 = before.length() < after.length() ? before : after;
+        String s2 = before.length() < after.length() ? after : before;
+
+        int index1 = 0;
+        int index2 = 0;
+        boolean foundDifference = false;
+        while (index2 < s2.length() && index1 < s1.length()) {
+            if (s1.charAt(index1) != s2.charAt(index2)) {
+                /* Ensure that this is the first difference found.*/
+                if (foundDifference) return false;
+                foundDifference = true;
+                if (s1.length() == s2.length()) { // On replace, move shorter pointer
+                    index1++;
+                }
+            } else {
+                index1++; // If matching, move shorter pointer
+            }
+            index2++; // Always move pointer for longer string
+        }
+        return true;
     }
 
     private int countOccurrencesOfChar(char[] str, int start, int end, int target) {

@@ -107,4 +107,31 @@ class SolutionStringUtilityTest {
 
         assertThat(result).isEqualTo("a%20%20b");
     }
+
+    @Tag("1.5")
+    @ParameterizedTest
+    @CsvSource({"example, example", "string, string", "same, same", "123, 123", "-/@#, -/@#"})
+    @DisplayName("Given the strings have no edits between them (they are the same), it should return true")
+    void inputStringsHaveNoEditsDifference(String before, String after) {
+        boolean response = utility.isOneEditAway(before, after);
+        assertThat(response).isTrue();
+    }
+
+    @Tag("1.5")
+    @ParameterizedTest
+    @CsvSource({"example, examples", "different, differnt", "123, 153", "-[;, [;"})
+    @DisplayName("Given the strings have exactly one edit difference between them, it should return true")
+    void inputStringsHaveExactlyOneEditDifference(String before, String after) {
+        boolean response = utility.isOneEditAway(before, after);
+        assertThat(response).isTrue();
+    }
+
+    @Tag("1.5")
+    @ParameterizedTest
+    @CsvSource({"something, sething", "12345, 19365", "sentence, biggersentence"})
+    @DisplayName("Given the strings have more than more than one difference between them, it should return false")
+    void inputStringsHaveMoreThanOneDifference(String before, String after) {
+        boolean response = utility.isOneEditAway(before, after);
+        assertThat(response).isFalse();
+    }
 }
