@@ -57,7 +57,7 @@ import java.util.Arrays;
  * Question 1.5
  *
  * "One Away: There are three types of edits that can be performed on strings: insert a character, remove a character,
- * or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.
+ * or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away."
  *
  * Hint #23 - Start with the easy thing. Can you check each of the conditions separately?
  * Hint #97 - What is the relationship between between the "insert character" and the "remove character" option? Do
@@ -65,6 +65,16 @@ import java.util.Arrays;
  * Hint #130 - Can you do all three checks in a single pass?
  *
  * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * Question 1.6
+ *
+ * "String Compression: Implement a method to perform basic String compression using the counts of repeated characters.
+ * For example, the String aabcccccaaa would become a2b1c5a3. If the "compressed" String would not become smaller than
+ * the original Sting, your method should return the original String. You can assume that the String has only
+ * uppercase and lowercase letters (a-z)."
+ *
+ * Hint #92 - Do the easy thing first. Compress the String, the compare the lengths.
+ * Hint #110 - Be careful that you aren't repeatedly concatenating Strings together. This can be very inefficient.
  *
  * @author Thomas Plumpton
  */
@@ -127,6 +137,31 @@ public class MyStringUtility implements StringUtility {
             return replacedCharacters < 2;
         }
         return false;
+    }
+
+    @Override
+    public String compressString(String input) {
+        StringBuilder compressed = new StringBuilder();
+
+        char[] chars = input.toCharArray();
+        char currentChar;
+        int count = 1;
+        for (int i = 0; i < chars.length - 1; i++) {
+            currentChar = chars[i];
+            char nextChar = chars[i + 1];
+            System.out.println("[" + i + "] Current: " + currentChar + ", Next Char: " + nextChar);
+
+            //TODO: Handle when we're 2 chars away from the end of the string. We know current and next, need to count and return
+
+            if (currentChar == nextChar) {
+                count++;
+            } else {
+                compressed.append(currentChar).append(count);
+                count = 1;
+            }
+        }
+
+        return compressed.toString();
     }
 
 }

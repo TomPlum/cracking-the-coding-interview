@@ -140,4 +140,21 @@ class MyStringUtilityTest {
         boolean response = utility.isOneEditAway(before, after);
         assertThat(response).isFalse();
     }
+
+    @Test
+    @Tag("1.6")
+    @DisplayName("The input string can benefit from compression and therefore should be return compressed")
+    void stringCanBeCompressed() {
+        String input = "aaabccccccdd";
+        String compressed = utility.compressString(input);
+        assertThat(compressed).isEqualTo("a3b1c6d2");
+    }
+
+    @Test
+    @Tag("1.6")
+    void stringCannotBeCompressed() {
+        String input = "abcdef";
+        String result = utility.compressString(input);
+        assertThat(result).isEqualTo(input);
+    }
 }

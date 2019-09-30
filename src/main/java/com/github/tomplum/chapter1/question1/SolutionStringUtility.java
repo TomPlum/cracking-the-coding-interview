@@ -1,8 +1,6 @@
 package com.github.tomplum.chapter1.question1;
 
 /**
- * Assuming that the string inputs are only lower-case letters a-z.
- *
  * @author Thomas Plumpton
  */
 public class SolutionStringUtility implements StringUtility {
@@ -94,6 +92,11 @@ public class SolutionStringUtility implements StringUtility {
             index2++; // Always move pointer for longer string
         }
         return true;
+    }
+
+    @Override
+    public String compressString(String input) {
+        return null;
     }
 
     private int countOccurrencesOfChar(char[] str, int start, int end, int target) {

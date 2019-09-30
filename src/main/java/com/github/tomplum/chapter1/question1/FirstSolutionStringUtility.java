@@ -43,6 +43,11 @@ public class FirstSolutionStringUtility implements StringUtility {
         return false;
     }
 
+    @Override
+    public String compressString(String input) {
+        return null;
+    }
+
     private boolean checkMaxOneOdd(int[] table) {
         boolean foundOdd = false;
         for (int count : table) {

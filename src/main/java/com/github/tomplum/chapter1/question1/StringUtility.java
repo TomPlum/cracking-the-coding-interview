@@ -43,4 +43,12 @@ public interface StringUtility {
      * @return True if one (or zero) edits have been made to the String.
      */
     boolean isOneEditAway(String before, String after);
+
+    /**
+     * Question 1.6 - String Compression
+     *
+     * @param input String to be compressed
+     * @return Compressed String
+     */
+    String compressString(String input);
 }
