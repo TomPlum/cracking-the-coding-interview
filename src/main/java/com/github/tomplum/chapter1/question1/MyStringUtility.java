@@ -143,25 +143,19 @@ public class MyStringUtility implements StringUtility {
     public String compressString(String input) {
         StringBuilder compressed = new StringBuilder();
 
-        char[] chars = input.toCharArray();
-        char currentChar;
-        int count = 1;
-        for (int i = 0; i < chars.length - 1; i++) {
-            currentChar = chars[i];
-            char nextChar = chars[i + 1];
-            System.out.println("[" + i + "] Current: " + currentChar + ", Next Char: " + nextChar);
+        int consecutiveChars = 0;
 
-            //TODO: Handle when we're 2 chars away from the end of the string. We know current and next, need to count and return
+        for (int i = 0; i < input.length(); i++) {
+            consecutiveChars++;
 
-            if (currentChar == nextChar) {
-                count++;
-            } else {
-                compressed.append(currentChar).append(count);
-                count = 1;
+            if (i + 1 >= input.length() || input.charAt(i) != input.charAt(i + 1)) {
+                compressed.append(input.charAt(i));
+                compressed.append(consecutiveChars);
+                consecutiveChars = 0;
             }
         }
 
-        return compressed.toString();
+        return compressed.toString().length() < input.length() ? compressed.toString() : input;
     }
 
 }
