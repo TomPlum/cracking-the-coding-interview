@@ -51,4 +51,13 @@ public interface StringUtility {
      * @return Compressed String
      */
     String compressString(String input);
+
+    /**
+     * Question 1.7 - Rotate Image
+     *
+     * @param x Horizontal number of pixels
+     * @param y Vertical number of pixels
+     * @return Matrix of pixels rotated by 90 degrees
+     */
+    int[][] rotateImage(int x, int y);
 }

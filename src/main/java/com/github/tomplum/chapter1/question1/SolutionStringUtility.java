@@ -96,7 +96,24 @@ public class SolutionStringUtility implements StringUtility {
 
     @Override
     public String compressString(String input) {
-        return null;
+        StringBuilder compressed = new StringBuilder();
+        int countConsecutive = 0;
+        for (int i = 0; i < input.length(); i++) {
+            countConsecutive++;
+
+            /* If next character is different than current, append this char to result.*/
+            if (i + 1 >= input.length() || input.charAt(i) != input.charAt(i + 1)) {
+                compressed.append(input.charAt(i));
+                compressed.append(countConsecutive);
+                countConsecutive = 0;
+            }
+        }
+        return compressed.length() < input.length() ? compressed.toString() : input;
+    }
+
+    @Override
+    public int[][] rotateImage(int x, int y) {
+        return new int[0][];
     }
 
     private int countOccurrencesOfChar(char[] str, int start, int end, int target) {

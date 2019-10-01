@@ -45,7 +45,23 @@ public class FirstSolutionStringUtility implements StringUtility {
 
     @Override
     public String compressString(String input) {
-        return null;
+        String compressedString = "";
+        int countConsecutive = 0;
+        for (int i = 0; i < input.length(); i++) {
+            countConsecutive++;
+
+            /* If next character is different than current, append this char to result.*/
+            if (i + 1 >= input.length() || input.charAt(i) != input.charAt(i + 1)) {
+                compressedString += "" + input.charAt(i) + countConsecutive;
+                countConsecutive = 0;
+            }
+        }
+        return compressedString.length() < input.length() ? compressedString : input;
+    }
+
+    @Override
+    public int[][] rotateImage(int x, int y) {
+        return new int[0][];
     }
 
     private boolean checkMaxOneOdd(int[] table) {

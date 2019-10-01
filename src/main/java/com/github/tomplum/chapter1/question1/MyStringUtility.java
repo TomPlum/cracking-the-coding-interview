@@ -76,6 +76,18 @@ import java.util.Arrays;
  * Hint #92 - Do the easy thing first. Compress the String, the compare the lengths.
  * Hint #110 - Be careful that you aren't repeatedly concatenating Strings together. This can be very inefficient.
  *
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * Question 1.7
+ *
+ * "Rotate Matrix: Given an image represented by an N x N matrix, where each pixel in the image is an integer, write a
+ * method to rotate the image by 90 degrees. Can you do it in place?"
+ *
+ * Hint #51 -
+ * Hint #100 -
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
  * @author Thomas Plumpton
  */
 public class MyStringUtility implements StringUtility {
@@ -156,6 +168,35 @@ public class MyStringUtility implements StringUtility {
         }
 
         return compressed.toString().length() < input.length() ? compressed.toString() : input;
+    }
+
+    @Override
+    public int[][] rotateImage(int x, int y) {
+        //Print Image
+        int[][] pixels = new int[x][y];
+        int count = 1;
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                pixels[i][j] = count++;
+            }
+        }
+
+        printImage(pixels);
+
+        return new int[][]{};
+    }
+
+    private void printImage(int[][] pixels) {
+        for (int x = 0; x < pixels.length; x++) {
+            for (int y = 0; y < pixels[1].length; y++) {
+                if (pixels[x][y] >= 10 || pixels.length <= 3) {
+                    System.out.print("[" + pixels[x][y] + "]");
+                } else {
+                    System.out.print("[" + pixels[x][y] + " ]");
+                }
+            }
+            System.out.println();
+        }
     }
 
 }

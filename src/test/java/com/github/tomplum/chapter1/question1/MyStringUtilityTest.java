@@ -157,4 +157,9 @@ class MyStringUtilityTest {
         String result = utility.compressString(input);
         assertThat(result).isEqualTo(input);
     }
+
+    @Test
+    void printTest() {
+        utility.rotateImage(3, 3);
+    }
 }
